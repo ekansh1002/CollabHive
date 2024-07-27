@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "66735031117",
+    "project_id": "heycollab-f32ec",
+    "storage_bucket": "heycollab-f32ec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:66735031117:android:d26b3f6c9d65d26d982d04",
+        "android_client_info": {
+          "package_name": "com.example.getcollab"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCU0dJ-X-HyIEKGV6m3_o6xsK6mMdLMQOQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
