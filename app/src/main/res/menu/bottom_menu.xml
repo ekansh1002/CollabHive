@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/homeFragment"
+        android:title="@string/home"
+        android:icon="@drawable/home" />
+    <item
+        android:id="@+id/likeFragment"
+        android:icon="@drawable/heart"
+        android:title="Liked" />
+    <item
+        android:id="@+id/postFragment"
+        android:title="@string/post"
+        android:icon="@drawable/write" />
+    <item
+        android:id="@+id/msgFragment"
+        android:title="@string/msg"
+        android:icon="@drawable/comment"
+        android:iconTint="@color/white"/>
+    <item
+        android:id="@+id/profileFragment"
+        android:title="@string/profile"
+        android:icon="@drawable/user"
+
+        />
+</menu>

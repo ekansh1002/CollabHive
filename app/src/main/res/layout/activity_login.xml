@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary"
+    android:background="@color/secondary"
     tools:context=".auth.LoginActivity">
 
 
@@ -13,7 +13,7 @@
         android:layout_width="400dp"
         android:layout_height="150dp"
         android:layout_marginTop="56dp"
-        android:background="@color/primary"
+        android:background="@color/secondary"
         android:src="@drawable/undraw_online_collaboration_re_bkpm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.454"
@@ -26,6 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
         android:layout_marginTop="120dp"
+        app:contentPadding="15dp"
         app:cardCornerRadius="30dp"
         app:cardElevation="20dp"
         android:background="@drawable/custom_edittext"
@@ -48,11 +49,15 @@
                 android:id="@+id/loginText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Login"
+                android:text="@string/login"
+                android:fontFamily=""
                 android:textAlignment="center"
-                android:textColor="@color/primary"
+                android:textColor="#072E33"
                 android:textSize="34sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:shadowColor="@color/primary"
+                android:shadowDx="2"
+                android:shadowRadius="4"/>
 
             <EditText
                 android:id="@+id/username"
@@ -63,9 +68,10 @@
                 android:drawablePadding="8dp"
                 android:hint="Username"
                 android:padding="8dp"
-                android:textColor="@color/black"
+                android:textColor="#072E33"
                 android:textColorHighlight="@color/cardview_dark_background"
-                android:layout_marginTop="40dp"/>
+                android:layout_marginTop="40dp"
+                />
 
             <EditText
                 android:id="@+id/password"
@@ -76,7 +82,7 @@
                 android:drawablePadding="8dp"
                 android:hint="Password"
                 android:padding="8dp"
-                android:textColor="@color/black"
+                android:textColor="#072E33"
                 android:inputType="textPassword"
                 android:textColorHighlight="@color/cardview_dark_background"
                 android:layout_marginTop="15dp"/>
@@ -89,7 +95,7 @@
                 android:text="LOGIN"
                 android:textColor="@color/white"
                 android:textSize="18sp"
-                android:backgroundTint="@color/primary"
+                android:backgroundTint="#072E33"
                 app:cornerRadius="20dp"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -101,6 +107,8 @@
         android:layout_marginTop="160dp"
         android:padding="8dp"
         android:text="Not yet registered? Signup Now"
+        android:clickable="true"
+        android:focusable="true"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="14sp"

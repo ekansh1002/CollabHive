@@ -12,13 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!-- Ensure Toolbar is set as ActionBar in MainActivity -->
 
-
-
-
-
-        <!-- Navigation Host Fragment -->
         <fragment
             android:id="@+id/fragment"
             android:name="androidx.navigation.fragment.NavHostFragment"
@@ -41,7 +35,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:menu="@menu/bottom_menu"
             app:itemTextColor="@color/black"
-            app:itemBackground="@color/white"/>
+            app:itemBackground="@color/secondary"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Navigation Drawer -->

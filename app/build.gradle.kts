@@ -65,6 +65,7 @@ dependencies {
     implementation("de.hdodenhof:circleimageview:3.1.0")
     implementation("com.google.firebase:firebase-appcheck-safetynet:16.1.2")
     implementation("com.google.firebase:firebase-appcheck:16.0.0")
+    implementation("com.github.yuyakaido:CardStackView:v2.3.4")
 
 
 

@@ -24,6 +24,8 @@ import com.google.firebase.FirebaseApp
 import com.google.firebase.appcheck.FirebaseAppCheck
 import com.google.firebase.appcheck.playintegrity.PlayIntegrityAppCheckProviderFactory
 import com.google.firebase.appcheck.safetynet.SafetyNetAppCheckProviderFactory
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class MyApplication : Application() {
     override fun onCreate() {
@@ -33,6 +35,7 @@ class MyApplication : Application() {
         firebaseAppCheck.installAppCheckProviderFactory(
             PlayIntegrityAppCheckProviderFactory.getInstance()
         )
+
     }
 }
 
@@ -40,7 +43,9 @@ class MyApplication : Application() {
 
 class MainActivity : AppCompatActivity(),OnNavigationItemSelectedListener {
     private lateinit var binding : ActivityMainBinding
-    lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
+    private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
+    private lateinit var firebaseRef : DatabaseReference
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -48,7 +53,7 @@ class MainActivity : AppCompatActivity(),OnNavigationItemSelectedListener {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
+        firebaseRef = FirebaseDatabase.getInstance().getReference("Users")
 
         actionBarDrawerToggle = ActionBarDrawerToggle(this,binding.drawerLayout,R.string.open,R.string.close)
         binding.drawerLayout.addDrawerListener(actionBarDrawerToggle)

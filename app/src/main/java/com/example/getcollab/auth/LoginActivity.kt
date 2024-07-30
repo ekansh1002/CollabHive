@@ -27,8 +27,11 @@ class LoginActivity: AppCompatActivity() {
             if(email.isNotEmpty() && password.isNotEmpty()){
                 loginUser(email,password)
             }else{
-                Toast.makeText(this,"Fill the credantials",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Fill the credentials",Toast.LENGTH_SHORT).show()
             }
+        }
+        binding.signuptext.setOnClickListener{
+            startActivity(Intent(this,RegisterActivity::class.java))
         }
 
 
