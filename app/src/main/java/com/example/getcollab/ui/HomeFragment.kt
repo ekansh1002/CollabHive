@@ -1,5 +1,6 @@
 package com.example.getcollab.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -20,24 +21,32 @@ import com.google.firebase.database.ValueEventListener
 import com.yuyakaido.android.cardstackview.CardStackLayoutManager
 import com.yuyakaido.android.cardstackview.CardStackListener
 import com.yuyakaido.android.cardstackview.Direction
+import com.example.getcollab.model.UserModel as UserModel1
 
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var manager: CardStackLayoutManager
-    private lateinit var list: ArrayList<PostModel>
     private lateinit var adapter: HomeAdapter
 
+    private val list = mutableListOf<PostModel>() // Use mutable list directly
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater, container, false)
-
-        getSampleData()
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        adapter = HomeAdapter(requireContext(), list)
+        binding.cardStackView.adapter = adapter
+
+        init()
+        getData()
     }
 
     private fun init() {
@@ -47,11 +56,11 @@ class HomeFragment : Fragment() {
             }
 
             override fun onCardSwiped(direction: Direction?) {
-                if (manager.topPosition == list.size - 1) {
-                    list.addAll(list)
-                    adapter.notifyDataSetChanged()
+                if (manager.topPosition == list.size) {
+                    manager.topPosition = 0
+                    // Ensure adapter is set correctly
+                    binding.cardStackView.adapter = adapter
                 }
-
             }
 
             override fun onCardRewound() {
@@ -82,39 +91,58 @@ class HomeFragment : Fragment() {
 
         binding.cardStackView.layoutManager = manager
         binding.cardStackView.itemAnimator = DefaultItemAnimator()
-
-        binding.cardStackView.adapter = HomeAdapter(requireContext(), list)
-        adapter = HomeAdapter(requireContext(),list)
-        binding.cardStackView.adapter = adapter
     }
 
     private fun getData() {
-        FirebaseDatabase.getInstance().getReference("Users")
-            .addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
+        val userRef = FirebaseDatabase.getInstance().getReference("Users")
+
+        userRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (isAdded && context != null) {
                     if (snapshot.exists()) {
-                        list = arrayListOf()
-                        for (data in snapshot.children) {
-                            val model = data.getValue(PostModel::class.java)
-                            if (model != null) {
-                                list.add(model)
+                        val postsList = mutableListOf<PostModel>()
+                        for (userSnapshot in snapshot.children) {
+                            val postsSnapshot = userSnapshot.child("posts") // Assuming posts are under a "Posts" node in each user node
+
+                            for (postSnapshot in postsSnapshot.children) {
+                                val postMap = postSnapshot.value as? Map<String, Any> ?: continue
+                                val postModel = PostModel(
+                                    postId = postMap["postId"] as? String ?: "",
+                                    title = postMap["title"] as? String ?: "",
+                                    description1 = postMap["description1"] as? String ?: "",
+                                    description2 = postMap["description2"] as? String ?: "",
+                                    username = userSnapshot.child("username").getValue(String::class.java), // Assuming UserModel has a username property
+                                    userId = postMap["userId"] as? String
+                                )
+                                postsList.add(postModel)
                             }
                         }
-                        list.shuffle()
-                        init()
-                        binding.cardStackView.adapter = HomeAdapter(requireContext(), list)
-
+                        postsList.shuffle()
+                        list.clear()
+                        list.addAll(postsList)
+                        adapter.notifyDataSetChanged() // Notify adapter of data change
                     } else {
-                        Toast.makeText(requireContext(), "No data available", Toast.LENGTH_SHORT).show()
+                        activity?.runOnUiThread {
+                            Toast.makeText(
+                                requireContext(),
+                                "No data available",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
                     }
                 }
+            }
 
-                override fun onCancelled(error: DatabaseError) {
-                    Toast.makeText(requireContext(), error.message, Toast.LENGTH_SHORT).show()
-                }
-            })
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(requireContext(), error.message, Toast.LENGTH_SHORT).show()
+            }
+        })
     }
-    private fun getSampleData() {
+}
+
+
+
+   /* private fun getSampleData() {
         list = arrayListOf(
             PostModel(
                 postId = "1",
@@ -150,6 +178,5 @@ class HomeFragment : Fragment() {
         list.shuffle()
         init()
         //binding.cardStackView.adapter = HomeAdapter(requireContext(), list)
-    }
-}
+    }*/
 

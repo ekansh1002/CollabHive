@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/animator/box_background_animation.xml -->
+<animator xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="200">
+    <objectAnimator
+        android:propertyName="strokeColor"
+        android:valueFrom="@color/black"
+        android:valueTo="@color/secondary"
+        android:valueType="colorType"/>
+</animator>

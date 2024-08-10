@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -16,8 +17,13 @@
         android:theme="@style/Theme.GETCOLLAB"
         tools:targetApi="31">
         <activity
+            android:name=".activity.MessageActivity"
+            android:exported="false" />
+        <activity android:name=".activity.PostDetailsActivity"
+            android:exported="false"/>
+        <activity
             android:name=".activity.SplashScreenActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,13 +36,10 @@
         <activity
             android:name=".auth.LoginActivity"
             android:exported="true" />
-
         <activity
             android:name=".MainActivity"
-            android:windowSoftInputMode="adjustPan"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan"></activity>
     </application>
 
 </manifest>

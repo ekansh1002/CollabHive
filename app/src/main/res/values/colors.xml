@@ -5,4 +5,5 @@
     <color name="primary">#6DA5C0</color>
     <color name = "secondary">#0C7076</color>
     <color name = "third">#00cec9</color>
+    <color name = "red">#FF0000</color>
 </resources>
