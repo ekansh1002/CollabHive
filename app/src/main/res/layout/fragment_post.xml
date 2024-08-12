@@ -51,7 +51,7 @@
             android:maxLines="4"
             android:inputType="textMultiLine"
             android:layout_marginBottom="16dp"
-            android:maxLength="100"/>
+            android:maxLength="150"/>
 
         <EditText
             android:id="@+id/inputField3"
@@ -64,7 +64,7 @@
             android:maxLines="6"
             android:inputType="textMultiLine"
             android:layout_marginBottom="16dp"
-            android:maxLength="150"/>
+            android:maxLength="250"/>
 
         <Button
             android:id="@+id/postButton"

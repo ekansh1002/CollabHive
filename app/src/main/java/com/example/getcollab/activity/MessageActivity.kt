@@ -30,6 +30,16 @@ class MessageActivity : AppCompatActivity() {
         chatId = intent.getStringExtra("chat_id")
         receiverUserId = intent.getStringExtra("userId")
 
+        if (receiverUserId != null) {
+            FirebaseDatabase.getInstance().getReference("Users").child(receiverUserId!!)
+                .child("username").get().addOnSuccessListener { snapshot ->
+                    val username = snapshot.getValue(String::class.java)
+                    binding.usernameTextView.text = username
+                }.addOnFailureListener {
+                    Toast.makeText(this, "Failed to retrieve username", Toast.LENGTH_SHORT).show()
+                }
+        }
+
         if (chatId != null) {
             getData(chatId!!)
         } else {

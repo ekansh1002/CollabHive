@@ -48,8 +48,8 @@ class LikedPostAdapter(
     override fun onBindViewHolder(holder: LikedPostViewHolder, position: Int) {
         val post = list[position]
         holder.binding.postTitle.text = post.title
-        holder.binding.postDescription.text = post.description1
-        holder.binding.postUsername.text = post.username
+
+        holder.binding.postUsername.text = "by "+post.username
     }
 }
 

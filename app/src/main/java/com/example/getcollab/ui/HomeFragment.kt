@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.LinearInterpolator
 import android.widget.Toast
 import androidx.recyclerview.widget.DefaultItemAnimator
 import com.example.getcollab.R
@@ -83,11 +84,12 @@ class HomeFragment : Fragment() {
         manager.setVisibleCount(3)
         manager.setTranslationInterval(8.0f)
         manager.setScaleInterval(0.95f)
-        manager.setSwipeThreshold(0.3f)
+        manager.setSwipeThreshold(0.2f) // Lowered threshold to ensure full swipe off screen
         manager.setMaxDegree(20.0f)
         manager.setDirections(Direction.HORIZONTAL)
         manager.setCanScrollHorizontal(true)
         manager.setCanScrollVertical(false)
+        manager.setOverlayInterpolator(LinearInterpolator()) // Smooth interpolation for better swipe effect
 
         binding.cardStackView.layoutManager = manager
         binding.cardStackView.itemAnimator = DefaultItemAnimator()
