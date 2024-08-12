@@ -26,7 +26,7 @@ class MessageActivity : AppCompatActivity() {
         binding = ActivityMessageBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Get the chatId and userId from the intent
+        
         chatId = intent.getStringExtra("chat_id")
         receiverUserId = intent.getStringExtra("userId")
 
@@ -69,9 +69,9 @@ class MessageActivity : AppCompatActivity() {
                             list.add(data)
                         }
                     }
-                    // Ensure the adapter is updated with new data
+                    
                     binding.recyclerView2.adapter = MessageAdapter(this@MessageActivity, list)
-                    // Scroll to the bottom to show the latest message
+                  
                     binding.recyclerView2.scrollToPosition(list.size - 1)
                 }
 

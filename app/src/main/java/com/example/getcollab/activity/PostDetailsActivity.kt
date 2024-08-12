@@ -12,13 +12,13 @@ class PostDetailsActivity : AppCompatActivity() {
         binding = ActivityPostDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Retrieve data from the intent
+        
         val username = intent.getStringExtra("username") ?: "Unknown User"
         val title = intent.getStringExtra("title") ?: "No Title"
         val description1 = intent.getStringExtra("description1") ?: "No Description"
         val description2 = intent.getStringExtra("description2") ?: "No Description"
 
-        // Set the data to the views
+        
         binding.postUsername.text = "by " + username
         binding.postTitle.text = title
         binding.postDescription1.text = description1
