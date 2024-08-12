@@ -16,3 +16,5 @@ The app in itself is a simple git commands searching app. Selecting command from
 <img src="https://github.com/ekansh1002/CollabHive/blob/main/screenshots/Home.png" height="600" width="300" hspace="40"><img src="https://github.com/ekansh1002/CollabHive/blob/main/screenshots/post.png" height="600" width="300" hspace="40">
 <br><br>
 <img src="https://github.com/ekansh1002/CollabHive/blob/main/likedPosts.png" height="600" width="300" hspace="40"><img src="https://github.com/ekansh1002/CollabHive/blob/main/screenshots/messages.png" height="600" width="300" hspace="40">
+<br><br>
+<img src="https://github.com/ekansh1002/CollabHive/blob/main/screenshots/DetailedIdea.png" height="600" width="300" hspace="40"><img src="https://github.com/ekansh1002/CollabHive/blob/main/screenshots/chats.png" height="600" width="300" hspace="40">
