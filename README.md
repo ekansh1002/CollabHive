@@ -1,13 +1,13 @@
 # CollabHive
 
-**CollabHive** is a simple android application to search git command on one click❤️.
+**CollabHive** is an android application which makes finding project collaborators easy, effective and fun.
 
 ***You can Install and test latest app from below 👇***
 
 [![CollabHive](https://img.shields.io/badge/GitExplorer-APK-red.svg?style=for-the-badge&logo=android)](https://github.com/ekansh1002/GetCollab/tree/main/apk_file)
 
 ## About
-The app in itself is a simple git commands searching app. Selecting command from the dropdown list gives you the usage and short description of that command.
+CollabHive, is a dynamic platform designed to foster collaboration by allowing users to share project ideas, engage in real-time chats, and connect through an interactive card-swiping interface. It offers an intuitive and visually appealing user experience.
 
 ## 📸 Screenshots
 
